@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
 
+import Header from './Layout/Header';
+import Content from './Layout/Content';
+import { useState } from 'react';
+
 function App() {
+
+  const [wishlist, setWishlist] = useState([]);
+
+  // function to added to the wishlist
+  const addToWishlist = (item) => {
+    setWishlist([...wishlist, item]);
+  };
+
+  // function to remove from the wishlist
+  const removeFromWishlist = (item) => {
+    setWishlist(wishlist.filter((wishItem) => wishItem !== item));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header wishCount={wishlist.length} />
+      <Content
+        // passing function as property value
+        addToWishlist={addToWishlist}
+        removeFromWishlist={removeFromWishlist}
+      />
     </div>
   );
 }

@@ -1,0 +1,16 @@
+.container {
+  background-color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  min-height: 400px;
+  margin: 16px;
+}
+
+.header {
+  background-color: #e3e2e1;
+  padding: 16px 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-size: 16px;
+  color: blue;
+}

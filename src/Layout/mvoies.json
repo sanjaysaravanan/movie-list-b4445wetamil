@@ -1,0 +1,18 @@
+[
+  {
+    "id": "10000581",
+    "title": "Satyaprem",
+    "dor": "2023-07-01",
+    "budget": "2cr",
+    "category": "Romance",
+    "image": "https://assetscdn1.paytm.com/images/cinema/Satyaprem-Ki-Katha--705x750-605397c0-11e8-11ee-92dd-1b13450119eb.jpg"
+  },
+  {
+    "id": "10000582",
+    "title": "Mission Impossible",
+    "dor": "2023-07-01",
+    "budget": "100cr",
+    "category": "Action",
+    "image": "https://assetscdn1.paytm.com/images/cinema/Mission-Impossible--Dead-Reckoning---Part-One-705x750-096755e0-1725-11ee-93df-99890badd865.jpg"
+  }
+]

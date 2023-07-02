@@ -1,0 +1,8 @@
+.container {
+  border-radius: 12px;
+  background-color: white;
+  margin: 24px;
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+}
