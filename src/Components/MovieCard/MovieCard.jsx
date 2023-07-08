@@ -10,7 +10,7 @@ import styles from './moviecard.module.css';
  * category - string
  */
 
-const MovieCard = ({ title, image, category, addToWishlist, removeFromWishlist }) => {
+const MovieCard = ({ title, image, category, }) => {
 
   // Props ---> title, image, category
 
@@ -19,9 +19,7 @@ const MovieCard = ({ title, image, category, addToWishlist, removeFromWishlist }
   const handleWished = () => {
     if (wished) {
       setWished(false);
-      removeFromWishlist(title);
     } else {
-      addToWishlist(title);
       setWished(true);
     }
   }

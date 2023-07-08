@@ -5,6 +5,8 @@ import MovieCard from '../Components/MovieCard/MovieCard';
 import moviesData from './mvoies.json';
 import DashboardCard from '../Components/DashboarCard/DashboardCard';
 import ColorCard from '../Components/ColorCard/ColorCard';
+import LineChart from '../Components/Charts/Line';
+import DoughnutChart from '../Components/Charts/Doughnut';
 
 const Content = ({ addToWishlist, removeFromWishlist }) => {
   return (
@@ -30,19 +32,19 @@ const Content = ({ addToWishlist, removeFromWishlist }) => {
           color={'blue'}
           title={"Earnings"}
           value={'$10000'}
-          icon={'home'}
+          icon={<i className="fa-solid fa-house fa-2x" style={{ color: "#d6d6d6" }}></i>}
         />
         <ColorCard
           color={'green'}
           title={"Annual"}
           value={'$10000'}
-          icon={'dollar'}
+          icon={<i className="fa-solid fa-dollar-sign fa-2x" style={{ color: "#d6d6d6" }}></i>}
         />
         <ColorCard
           color={'yellow'}
           title={"Excercise"}
           value={'50%'}
-          icon={'calendar'}
+          icon={<i className="fa-solid fa-calendar fa-2x" style={{ color: "#d6d6d6" }}></i>}
         />
       </div>
       <div className={styles.container} >
@@ -67,12 +69,25 @@ const Content = ({ addToWishlist, removeFromWishlist }) => {
       >
         <DashboardCard
           title={'Earnings Overview'}
+          width={'col-12 col-sm-12 col-md-8'}
+        >
+          <LineChart />
+        </DashboardCard>
+        <DashboardCard
+          title={'Revenuse Sources'}
           width={'col-12 col-sm-12 col-md-4'}
+          innerHtml={<DoughnutChart />}
         />
         <DashboardCard
-          title={'Earnings Overview'}
-          width={'col-12 col-sm-12 col-md-8'}
-        />
+          title={'Development Approach'}
+          width={'col-12 col-sm-12 col-md-4'}
+        >
+          <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
+            CSS bloat and poor page performance. Custom CSS classes are used to create
+            custom components and custom utility classes.</p>
+          <p class="mb-0">Before working with this theme, you should become familiar with the
+            Bootstrap framework, especially the utility classes.</p>
+        </DashboardCard>
       </div>
     </>
   );
