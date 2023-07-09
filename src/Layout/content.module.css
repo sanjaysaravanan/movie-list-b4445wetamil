@@ -6,3 +6,14 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+
+.form {
+  background-color: white;
+  box-shadow: 0 0 2px #ccc;
+  padding: 16px;
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}

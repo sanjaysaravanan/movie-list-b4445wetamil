@@ -10,7 +10,7 @@ import styles from './moviecard.module.css';
  * category - string
  */
 
-const MovieCard = ({ title, image, category, }) => {
+const MovieCard = ({ movie, removeFromWishlist, addToWishlist }) => {
 
   // Props ---> title, image, category
 
@@ -19,16 +19,18 @@ const MovieCard = ({ title, image, category, }) => {
   const handleWished = () => {
     if (wished) {
       setWished(false);
+      removeFromWishlist(movie);
     } else {
       setWished(true);
+      addToWishlist(movie);
     }
   }
 
   return (
     <div className={styles.container}>
-      <img src={image} alt={title} className={styles.movieImage} />
-      <h2>{title}</h2>
-      <p>{category}</p>
+      <img src={movie.image} alt={movie.title} className={styles.movieImage} />
+      <h2>{movie.title}</h2>
+      <p>{movie.category}</p>
       <button className={styles.button} onClick={() => handleWished()}>
         <i
           className={`${wished ? 'fa-solid' : 'fa-regular'} fa-heart`}

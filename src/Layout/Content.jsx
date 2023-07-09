@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './content.module.css';
 import MovieCard from '../Components/MovieCard/MovieCard';
-import moviesData from './mvoies.json';
 import DashboardCard from '../Components/DashboarCard/DashboardCard';
 import ColorCard from '../Components/ColorCard/ColorCard';
 import LineChart from '../Components/Charts/Line';
 import DoughnutChart from '../Components/Charts/Doughnut';
 
-const Content = ({ addToWishlist, removeFromWishlist }) => {
+const Content = ({ addToWishList, removeFromWishList }) => {
+
+  const [openForm, setForm] = useState(false);
+
+  const [moviesData, setMoviesData] = useState([]);
+
+
+  const [formData, setFormData] = useState({
+    title: '',
+    image: '',
+    DOR: '',
+    category: '',
+    budget: '',
+  });
+
+  const handleForm = () => {
+    setForm(!openForm);
+  }
+
+  const handleChange = (e) => {
+    console.log(e.target.name, e.target.value);
+  }
+
+
+
   return (
     <>
       <div
@@ -19,7 +42,7 @@ const Content = ({ addToWishlist, removeFromWishlist }) => {
         }}
       >
         <h1 style={{ margin: 0 }}>Dashboard</h1>
-        <button>Add New</button>
+        <button onClick={handleForm} >Add New</button>
       </div>
       <div
         style={{
@@ -51,12 +74,10 @@ const Content = ({ addToWishlist, removeFromWishlist }) => {
         {/* key prop is must while Listing rendering */}
         {moviesData.map((movie) => (
           <MovieCard
-            title={movie.title}
-            category={movie.category}
-            image={movie.image}
+            movie={movie}
             key={movie.id} // index should not be used for key
-            addToWishlist={addToWishlist}
-            removeFromWishlist={removeFromWishlist}
+            addToWishlist={addToWishList}
+            removeFromWishlist={removeFromWishList}
           />))}
       </div>
       <div
@@ -89,6 +110,26 @@ const Content = ({ addToWishlist, removeFromWishlist }) => {
             Bootstrap framework, especially the utility classes.</p>
         </DashboardCard>
       </div>
+      {openForm && <div className={styles.form}>
+        <form>
+          <label htmlFor='title'  >Title</label>
+          <input name={'title'} id={'title'} onChange={handleChange} />
+          <br />
+          <label htmlFor='DOR'>DOR</label>
+          <input name={'DOR'} id={'DOR'} onChange={handleChange} />
+          <br />
+          <label htmlFor='image'>Image</label>
+          <input name={'image'} id={'image'} onChange={handleChange} />
+          <br />
+          <label htmlFor='category'>Category</label>
+          <input name={'category'} id={'category'} onChange={handleChange} />
+          <br />
+          <label htmlFor='budget' >Budget</label>
+          <input name={'budget'} id={'budget'} onChange={handleChange} />
+          <br />
+          <button type="submit" >Submit</button>
+        </form>
+      </div>}
     </>
   );
 }

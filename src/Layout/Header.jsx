@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './header.module.css';
 
 
-const Header = ({ wishCount }) => {
+const Header = ({ title, wishCount }) => {
   return (
     <div className={styles.header}>
       <img
@@ -23,7 +23,7 @@ const Header = ({ wishCount }) => {
           <i class="fa-solid fa-magnifying-glass" style={{ color: "#ffffff" }}></i>
         </button>
       </div>
-      <button className={styles.wishList} >
+      <button className={styles.wishList} title={title} >
         <i
           className="fa-solid fa-heart"
           style={{ color: '#ff0000' }}

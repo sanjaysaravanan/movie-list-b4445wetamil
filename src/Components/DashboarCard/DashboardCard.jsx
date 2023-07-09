@@ -1,9 +1,6 @@
 import React from 'react';
 
 import styles from './dashboardcard.module.css';
-import LineChart from '../Charts/Line';
-import Doughnut from '../Charts/Doughnut';
-
 const DashboardCard = ({ title, width, isAction, children, innerHtml }) => {
   return (
     <div className={width} >
